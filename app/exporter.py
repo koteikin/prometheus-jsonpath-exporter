@@ -12,6 +12,7 @@ import logging
 
 DEFAULT_PORT=9158
 DEFAULT_LOG_LEVEL='info'
+DEFAULT_TIMEOUT=60
 
 class JsonPathCollector(object):
   def __init__(self, config):
@@ -19,7 +20,7 @@ class JsonPathCollector(object):
 
   def collect(self):
     config = self._config
-    result = json.loads(urllib2.urlopen(config['json_data_url'], timeout=10).read())
+    result = json.loads(urllib2.urlopen(config['json_data_url'], timeout=DEFAULT_TIMEOUT).read())
     result_tree = Tree(result)
     for metric_config in config['metrics']:
       metric_name = "{}_{}".format(config['metric_name_prefix'], metric_config['name'])
