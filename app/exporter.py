@@ -12,7 +12,7 @@ import logging
 
 DEFAULT_PORT=9158
 DEFAULT_LOG_LEVEL='info'
-DEFAULT_TIMEOUT=60
+DEFAULT_TIMEOUT=120
 
 class JsonPathCollector(object):
   def __init__(self, config):
